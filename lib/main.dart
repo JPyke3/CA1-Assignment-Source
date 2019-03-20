@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutterteamproject/models/todos.dart';
 
+// This is our project file
 void main() {
   return runApp(MyApp());
 }
