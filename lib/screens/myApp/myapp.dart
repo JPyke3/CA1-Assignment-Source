@@ -7,25 +7,45 @@ class MyApp extends StatelessWidget {
   MyApp(this.viewModel);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Drawer(
-        child: SafeArea(
-          child: Column(
-            children: <Widget>[
-              ListTile(
-                onTap: () {
-                  print("Test");
-                },
-                leading: Icon(Icons.ac_unit),
-                title: Text("Test"),
-              )
-            ],
-          ),
+    if (viewModel.todo != null) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("My 2D ToDo"),
+          actions: [IconButton(
+            onPressed: () {},
+          icon: Icon(Icons.settings))],
         ),
-      ),
-      appBar: AppBar(
-        title: Text("ToDo App"),
-      ),
-    );
+        body: ListView.builder(
+          itemCount: viewModel.todo.length,
+          itemBuilder: (BuildContext context, int i) {
+            String name = viewModel.todo[i].name;
+            return ListTile(
+              onTap: () {},
+              title: Text(name),
+              trailing: Icon(Icons.arrow_forward_ios),
+            );
+          },
+        ),
+      );
+    } else {
+      return Scaffold(body: Container());
+    }
   }
 }
+
+//ListTile
+
+//Homework
+//Do Maths
+//Do History
+
+// Raised Button
+// FlatButton
+// Page Views
+// Navigation Bar
+// Floating Action Button
+// Drawer
+// Material
+// Padding
+// Container
+// CheckBox

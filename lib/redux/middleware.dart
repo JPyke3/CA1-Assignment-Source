@@ -11,6 +11,7 @@ class MiddleWare extends MiddlewareClass<AppState> {
         store.dispatch(FetchedDataFromFirebase(val));
       });
     }
+    next(action);
   }
 
   Future<List<ToDo>> loadToDoFromFirebase() async {
