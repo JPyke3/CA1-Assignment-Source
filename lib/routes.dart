@@ -22,7 +22,7 @@ class Routes {
               debugShowCheckedModeBanner: false,
               title: 'Flutter Demo',
               theme: ThemeData(
-                brightness: Brightness.dark,
+                brightness: Brightness.light,
                 primaryColor: Colors.red,
                 accentColor: Colors.green,
               ),
