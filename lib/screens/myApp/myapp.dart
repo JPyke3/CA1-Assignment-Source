@@ -45,20 +45,3 @@ class MyApp extends StatelessWidget {
     }
   }
 }
-
-//ListTile
-
-//Homework
-//Do Maths
-//Do History
-
-// Raised Button
-// FlatButton
-// Page Views
-// Navigation Bar
-// Floating Action Button
-// Drawer
-// Material
-// Padding
-// Container
-// CheckBox
