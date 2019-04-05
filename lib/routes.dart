@@ -20,7 +20,7 @@ class Routes {
           builder: (BuildContext context, ViewModel viewModel) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Flutter Demo',
+              title: 'My2D2Do',
               theme: ThemeData(
                 brightness: Brightness.light,
                 primaryColor: Colors.red,
