@@ -1,5 +1,6 @@
-import 'package:flutterteamproject/redux/actions.dart';
-import 'package:flutterteamproject/redux/model.dart';
+
+import 'package:My2D2Do/redux/actions.dart';
+import 'package:My2D2Do/redux/model.dart';
 import 'package:redux/redux.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

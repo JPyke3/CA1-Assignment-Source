@@ -1,4 +1,5 @@
-import 'package:flutterteamproject/redux/model.dart';
+
+import 'package:My2D2Do/redux/model.dart';
 
 class FetchListFromFirebase {}
 

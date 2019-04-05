@@ -1,4 +1,5 @@
-import 'package:flutterteamproject/redux/model.dart';
+
+import 'package:My2D2Do/redux/model.dart';
 import 'package:redux/redux.dart';
 import 'actions.dart';
 

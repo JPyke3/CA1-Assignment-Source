@@ -1,5 +1,5 @@
+import 'package:My2D2Do/redux/viewmodel.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterteamproject/redux/viewmodel.dart';
 
 class MyApp extends StatelessWidget {
   final ViewModel viewModel;

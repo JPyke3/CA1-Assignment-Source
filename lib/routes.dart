@@ -1,11 +1,11 @@
+import 'package:My2D2Do/redux/actions.dart';
+import 'package:My2D2Do/redux/middleware.dart';
+import 'package:My2D2Do/redux/model.dart';
+import 'package:My2D2Do/redux/reducers.dart';
+import 'package:My2D2Do/redux/viewmodel.dart';
+import 'package:My2D2Do/screens/myApp/myapp.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterteamproject/redux/middleware.dart';
-import 'package:flutterteamproject/redux/model.dart';
-import 'package:flutterteamproject/redux/reducers.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutterteamproject/redux/viewmodel.dart';
-import 'package:flutterteamproject/screens/myApp/myapp.dart';
-import 'package:flutterteamproject/redux/actions.dart';
 import 'package:redux/redux.dart';
 
 class Routes {
