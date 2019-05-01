@@ -1,4 +1,5 @@
-import 'package:My2D2Do/screens/myApp/myapp.dart';
+import 'package:My2D2Do/screens/MainHome.dart';
+import 'package:My2D2Do/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
@@ -11,7 +12,7 @@ class Routes {
         primaryColor: Colors.red,
         accentColor: Colors.green,
       ),
-      home: MyApp(),
+      home: LoginScreen(),
     ));
   }
 }
