@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onSaved: (user) => _username = user, // Function that changes the _username variable into what was inputted
             ),
             TextFormField(decoration: InputDecoration(hintText: "Password"),
-            obscureText: true,
+            obscureText: true,  
              onSaved: (pass) => _password = pass, // Function that changes the _password variable into what was inputted
              ),
             RaisedButton(
