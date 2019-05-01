@@ -1,12 +1,11 @@
-import 'package:My2D2Do/screens/createAccountScreen.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
+class CreateAccount extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _CreateAccountState createState() => _CreateAccountState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _CreateAccountState extends State<CreateAccount> {
   String username;
   String password;
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
@@ -14,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login Screen"),
+        title: Text("Sign Up Screen"),
       ),
       body: Form(
         key: _formKey,
@@ -24,9 +23,17 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: InputDecoration( hintText: "Username"),
               onSaved: (user) => username = user,
             ),
+            TextFormField(
+              decoration: InputDecoration( hintText: "Username Verify"),
+              onSaved: (user) => null,
+            ),
             TextFormField(decoration: InputDecoration(hintText: "Password"),
             obscureText: true,
              onSaved: (pass) => password = pass,),
+             TextFormField(
+              decoration: InputDecoration( hintText: "Password Verify"),
+              onSaved: (pass) => null,
+            ),
             RaisedButton(
               child: Text("Login"),
               onPressed: () {
@@ -39,8 +46,8 @@ class _LoginScreenState extends State<LoginScreen> {
               
             ),
             FlatButton(
-              child: Text("Need an Account?"),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccount())),
+              child: Text("Already Have An Account?"),
+              onPressed: () => Navigator.pop(context),
             )
           ],
         ),
