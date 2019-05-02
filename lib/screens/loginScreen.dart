@@ -1,5 +1,6 @@
 import 'package:My2D2Do/screens/createAccountScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -44,10 +45,32 @@ class _LoginScreenState extends State<LoginScreen> {
             FlatButton(
               child: Text("Need an Account?"),
               onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccount())),
+            ),
+            RaisedButton(
+              child: Text("Add To Databse"),
+              onPressed: () {
+                addToFirestore();
+              },
+            ),
+            RaisedButton(
+              child: Text("Remove From Databse"),
+              onPressed: () {
+                removeFromFirestore();
+              },
             )
           ],
         ),
       ),
     );
+  }
+
+  void addToFirestore() {
+    Firestore.instance.collection("todo").add({
+      "name": "Clean the Backyard"
+    });
+  }
+
+  void removeFromFirestore() {
+    Firestore.instance.collection("todo").document("-LdsSlJ1PqP0wDE9mKK_").delete();
   }
 }
