@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+
+import 'dart:async';
+import 'package:My2D2Do/screens/createAccountScreen.dart';
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+void main() {
+    list<int> userSearch = [];
+
+    Timer _sendTimeOutTimer;
+
+    const oneSec = Duration(seconds: 2);
+    _sendTimeOutTimer = Timer.periodic(onSec, (Timer t){
+        userSearchItems.add(1);
+        print(userSearchItems.lenght); 
+        _sendTimeOutTimer.cancel();
+    });
+
+    print(userSearchItems.lenght);
+}
