@@ -1,6 +1,7 @@
 import 'package:My2D2Do/screens/createAccountScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'signIn.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -36,6 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onPressed: () {
                 if(_formKey.currentState.validate()) {
                   _formKey.currentState.save();
+                    signIn(_username, _password);
                   //TODO: Brendan this is where you will put the logic for your username and password authentication
                   //The user and pass is stored in two variables called _username and _password.
                 }
