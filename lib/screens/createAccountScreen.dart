@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'createUser.dart';
+import 'package:My2D2Do/models/auth.dart';
 
 class CreateAccount extends StatefulWidget {
   @override
@@ -44,9 +44,7 @@ class _CreateAccountState extends State<CreateAccount> {
               onPressed: () {
                 if(_formKey.currentState.validate()) {
                   _formKey.currentState.save();
-                  createUser(_username, _password);
-                  //TODO: Brendan this is where you will put the logic for your username and password authentication
-                  //The user and pass is stored in two variables called _username and _password.
+                  Auth.createUser(_username, _password);
                 }
               },
               
