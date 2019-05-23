@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'home.dart';
 import 'lists.dart';
+import 'settings.dart';
 
 class MyApp extends StatefulWidget {
   MyApp();
@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
       ),
       body: PageView(
-        children: <Widget>[Home(), Lists(), Text('p2'), Text('p3')],
+        children: <Widget>[Home(), Lists(), Settings(), Text('p3')],
         controller: pageController,
         physics: NeverScrollableScrollPhysics(),
       ),

@@ -8,7 +8,7 @@ class Lists extends StatefulWidget {
 }
 
 class _ListsState extends State<Lists> {
-  List<My2DList> dumbieData = [
+  List<My2DList> dummyData = [
     My2DList(
       name: 'Grocery Shopping', 
       description: '', 
@@ -32,12 +32,12 @@ class _ListsState extends State<Lists> {
     return Container(
       child: ListView.builder(
         itemBuilder: (context, i) {
-          return ListTile(title: Text(dumbieData[i].name),
+          return ListTile(title: Text(dummyData[i].name),
           onTap: (){
           },
           trailing: Icon(Icons.chevron_right),);
         },
-        itemCount: dumbieData.length,
+        itemCount: dummyData.length,
       )
       
     );
