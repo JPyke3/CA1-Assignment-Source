@@ -2,6 +2,8 @@ import 'package:My2D2Do/screens/createAccountScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:My2D2Do/models/auth.dart';
+
+import 'mainHome.dart';
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -23,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
         key: _formKey,
               child: Column(
           children: <Widget>[
-            TextFormField(
+            TextFormField(  
               decoration: InputDecoration( hintText: "Username"),
               onSaved: (user) => _username = user, // Function that changes the _username variable into what was inputted
             ),
@@ -34,28 +36,21 @@ class _LoginScreenState extends State<LoginScreen> {
             RaisedButton(
               child: Text("Login"),
               onPressed: () {
+                /*
                 if(_formKey.currentState.validate()) {
                   _formKey.currentState.save();
                     Auth.signIn(_username, _password);
                 }
+                */
               },
-              
             ),
             FlatButton(
               child: Text("Need an Account?"),
               onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccount())),
             ),
-            RaisedButton(
-              child: Text("Add To Databse"),
-              onPressed: () {
-                addToFirestore();
-              },
-            ),
-            RaisedButton(
-              child: Text("Remove From Databse"),
-              onPressed: () {
-                removeFromFirestore();
-              },
+            FlatButton(
+              child: Text("Guest Login"),
+              onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyApp())),
             )
           ],
         ),
