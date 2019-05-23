@@ -10,8 +10,7 @@ class MyApp extends StatelessWidget {
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.settings))],
       ),
       body: Text("New App, Without Redux")
-
-  // This is jacob hello 
+      
     );
   }
 }

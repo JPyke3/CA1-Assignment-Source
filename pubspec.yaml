@@ -23,6 +23,7 @@ dependencies:
   cloud_firestore: ^0.9.7
   flutter_launcher_icons: ^0.7.0
   firebase_auth: ^0.8.4+5
+  google_maps_flutter: ^0.5.13
 
 dev_dependencies:
   flutter_test:
