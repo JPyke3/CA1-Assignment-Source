@@ -6,24 +6,27 @@ import 'package:My2D2Do/models/todos.dart';
 
 
 class ItemList extends StatefulWidget {
+  final My2DList list;
+
+  const ItemList({Key key, @required this.list}) : super(key: key);
   @override
   _ListsState createState() => _ListsState();
 }
 class _ListsState extends State<ItemList> {
-  List<Todos> finalData = [];
-  
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView.builder(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.list.name),
+      ),
+      body: ListView.builder(
         itemBuilder: (context, i) {
-          return ListTile(title: Text(finalData[i].name),
+          return ListTile(title: Text(widget.list.items[i].name),
           onTap: (){
           },
           trailing: Icon(Icons.check_box_outline_blank),);
         },
-        itemCount: finalData.length,
+        itemCount: widget.list.items.length,
       )
       
     );

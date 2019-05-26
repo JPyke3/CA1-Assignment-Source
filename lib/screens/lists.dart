@@ -36,6 +36,7 @@ class _ListsState extends State<Lists> {
         itemBuilder: (context, i) {
           return ListTile(title: Text(dummyData[i].name),
           onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ItemList(list: dummyData[i],)));
           },
           trailing: Icon(Icons.chevron_right),);
         },
