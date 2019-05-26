@@ -15,11 +15,9 @@ class _ListsState extends State<ItemList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.list.name),
-          actions: <Widget>[
-            IconButton(
-              onPressed: () {
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add_box),
+        onPressed: () {
                 GlobalKey<FormState> _key = GlobalKey<FormState>();
                 showDialog(
                     context: context,
@@ -64,9 +62,9 @@ class _ListsState extends State<ItemList> {
                       );
                     });
               },
-              icon: Icon(Icons.add),
-            )
-          ],
+      ),
+        appBar: AppBar(
+          title: Text(widget.list.name),
         ),
         body: ListView.builder(
           itemBuilder: (context, i) {
