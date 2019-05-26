@@ -3,8 +3,6 @@ import 'package:My2D2Do/classes/My2DList.dart';
 import 'package:flutter/material.dart';
 import 'package:My2D2Do/models/todos.dart';
 
-
-
 class ItemList extends StatefulWidget {
   final My2DList list;
 
@@ -12,23 +10,94 @@ class ItemList extends StatefulWidget {
   @override
   _ListsState createState() => _ListsState();
 }
+
 class _ListsState extends State<ItemList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.list.name),
-      ),
-      body: ListView.builder(
-        itemBuilder: (context, i) {
-          return ListTile(title: Text(widget.list.items[i].name),
-          onTap: (){
+        appBar: AppBar(
+          title: Text(widget.list.name),
+          actions: <Widget>[
+            IconButton(
+              onPressed: () {
+                GlobalKey<FormState> _key = GlobalKey<FormState>();
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      String tempItem;
+
+                      return AlertDialog(
+                        content: Form(
+                          key: _key,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              TextFormField(
+                                decoration: InputDecoration(
+                                  hintText: "Item Name",
+                                ),
+                                onSaved: (value) {
+                                  tempItem = value;
+                                },
+                                onFieldSubmitted: (value) {
+                                  tempItem = value;
+                                },
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 16.0),
+                                child: RaisedButton(
+                                  child: Text("Add"),
+                                  color: Theme.of(context).primaryColor,
+                                  onPressed: () {
+                                    setState(() {
+                                      _key.currentState.save();
+                                      widget.list.items.add(My2DItem(
+                                          completed: false, name: tempItem));
+                                      Navigator.pop(context);
+                                    });
+                                  },
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    });
+              },
+              icon: Icon(Icons.add),
+            )
+          ],
+        ),
+        body: ListView.builder(
+          itemBuilder: (context, i) {
+            if (widget.list.items[i].completed) {
+              return ListTile(
+                  title: Text(widget.list.items[i].name),
+                  onTap: () {},
+                  trailing: Checkbox(
+                    onChanged: (bool) {
+                      setState(() {
+                        widget.list.items[i].completed = bool;
+                      });
+                    },
+                    value: true,
+                  ));
+            } else {
+              return ListTile(
+                title: Text(widget.list.items[i].name),
+                onTap: () {},
+                trailing: Checkbox(
+                  onChanged: (bool) {
+                    setState(() {
+                      widget.list.items[i].completed = bool;
+                    });
+                  },
+                  value: false,
+                ),
+              );
+            }
           },
-          trailing: Icon(Icons.check_box_outline_blank),);
-        },
-        itemCount: widget.list.items.length,
-      )
-      
-    );
+          itemCount: widget.list.items.length,
+        ));
   }
 }
