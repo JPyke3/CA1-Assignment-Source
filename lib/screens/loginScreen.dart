@@ -21,7 +21,7 @@ class LoginPageState extends State<LoginPage>
     _iconAnimation = new CurvedAnimation(
         parent: _iconAnimationController, curve: Curves.easeOut);
     _iconAnimation.addListener(() => this.setState(() {}));
-    _iconAnimationController.forward(); //end of animation loader
+    _iconAnimationController.forward(); //end of animation loader (doesn't work)
   }
 
   @override
