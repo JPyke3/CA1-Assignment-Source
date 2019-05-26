@@ -1,3 +1,4 @@
+import 'package:My2D2Do/data/dummyData.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'lists.dart';
@@ -17,9 +18,53 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        label: Text("Add A List"),
+        icon: Icon(Icons.add_box),
+        onPressed: () {
+          GlobalKey<FormState> _key = GlobalKey<FormState>();
+          String tempItem;
+          showDialog(context: context, builder: (context) {
+            return AlertDialog(
+                        content: Form(
+                          key: _key,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              TextFormField(
+                                decoration: InputDecoration(
+                                  hintText: "List Name",
+                                ),
+                                onSaved: (value) {
+                                  tempItem = value;
+                                },
+                                onFieldSubmitted: (value) {
+                                  tempItem = value;
+                                },
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 16.0),
+                                child: RaisedButton(
+                                  child: Text("Add"),
+                                  color: Theme.of(context).primaryColor,
+                                  onPressed: () {
+                                    setState(() {
+                                      _key.currentState.save();
+                                      DummyData.addListToData(tempItem);
+                                      Navigator.pop(context);
+                                    });
+                                  },
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+          });
+        },
+      ),
       appBar: AppBar(
         title: Text("My 2D ToDo"),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
       ),
       body: PageView(
         children: <Widget>[Home(), Lists(), Settings(), Text('p3')],
