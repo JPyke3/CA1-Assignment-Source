@@ -1,28 +1,23 @@
 import 'package:My2D2Do/screens/createAccountScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:My2D2Do/models/auth.dart';
 
-class LoginPage extends StatefulWidget {
+
+import 'mainHome.dart';
+class LoginScreen extends StatefulWidget {
+
   @override
   State createState() => new LoginPageState(); //login page class;
 }
 
-class LoginPageState extends State<LoginPage>
-    with SingleTickerProviderStateMixin {
-  AnimationController
-      _iconAnimationController; //animation doesn't work with imported asset of logo, null code for now
-  Animation<double> _iconAnimation;
 
-  @override
-  void initState() {
-    super.initState();
-    _iconAnimationController = new AnimationController(
-        vsync: this, duration: new Duration(milliseconds: 500));
-    _iconAnimation = new CurvedAnimation(
-        parent: _iconAnimationController, curve: Curves.easeOut);
-    _iconAnimation.addListener(() => this.setState(() {}));
-    _iconAnimationController.forward(); //end of animation loader (doesn't work)
-  }
+class _LoginScreenState extends State<LoginScreen> {
+  //Variables for storing the actual username and password
+  String _username;
+  String _password;
+  //The variable that holds the current state of the form, is used for validation and submission of the form
+  final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +30,7 @@ class LoginPageState extends State<LoginPage>
               //widget to house background
               new Image(
                 image: new AssetImage(
-                    "android/app/src/main/res/drawable/gbg.png"), //ask what to use here;can replace
+                    "android/app/src/main/res/drawable/gbg.png"), //can replace this with any bg
                 fit: BoxFit.cover, //cover entire screen
                 color: Colors.white,
                 colorBlendMode: BlendMode
@@ -53,6 +48,7 @@ class LoginPageState extends State<LoginPage>
                       //size: _iconAnimation.value * 100,
                     ),
                     new Form(
+                      key: _formKey,
                       child: new Theme(        //wrapping form fields and container with a new widget
                         data: new ThemeData(
                             brightness: Brightness.light,
@@ -71,6 +67,7 @@ class LoginPageState extends State<LoginPage>
                                   decoration: new InputDecoration(
                                     labelText: "Enter Email",
                                   ),
+                                  onSaved: (user) => _username = user, // Function that changes the _username variable into what was inputted  
                                   keyboardType: TextInputType.emailAddress,
                                 ),
                                 new TextFormField(
@@ -78,20 +75,37 @@ class LoginPageState extends State<LoginPage>
                                     labelText: "Enter Password",
                                   ),
                                   keyboardType: TextInputType.text,
+                                  onSaved: (pass) => _password = pass, // Function that changes the _password variable into what was inputted
                                   obscureText: true,//hide text as stars
                                 ),
                                 new Padding(
                                   padding: const EdgeInsets.only(top: 20.0),
                                 ),
-                                new MaterialButton(
-                                    //The Login button at bottom
-                                    color: Color(0xff4bace9),
-                                    textColor: Colors.white,
-                                    child: new Text("Login")),
-                                new MaterialButton(
-                                    color: const Color(0xffe9884b),
-                                    textColor: Colors.white,
-                                    child: new Text("Guest User"))
+                                RaisedButton(
+                                  color: Color(0xff4bace9),
+                                  textColor: Colors.white,
+                                  child: Text("Login"),
+                                  onPressed: () {
+                                    /*
+                                     if(_formKey.currentState.validate()) {
+                                      _formKey.currentState.save();
+                                      Auth.signIn(_username, _password);
+                                    }
+                                       */
+                                  },
+                                ),
+                                FlatButton(
+                                  color: const Color(0xffe9884b),
+                                  textColor: Colors.white,
+                                  child: Text("Guest Login"),
+                                  onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyApp())),
+                                ),
+                                FlatButton(
+                                  child: Text("Need an Account?"),
+                                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccount())),
+                                )
+                                
+                                
                               ]),
                         ),
                       ),
