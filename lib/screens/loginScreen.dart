@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   },
                                 ),
                                 FlatButton(
-                                  color: const Color(0xffe9884b),
+                                  color: Color(0xffe9884b),
                                   textColor: Colors.white,
                                   child: Text("Guest Login"),
                                   onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyApp())),
