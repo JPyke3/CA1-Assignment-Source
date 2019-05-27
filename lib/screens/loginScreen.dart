@@ -8,7 +8,7 @@ import 'mainHome.dart';
 class LoginScreen extends StatefulWidget {
 
   @override
-  State createState() => new LoginPageState(); //login page class;
+  State createState() => new LoginScreenState(); //login page class;
 }
 
 
