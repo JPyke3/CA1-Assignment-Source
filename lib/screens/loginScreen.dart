@@ -1,14 +1,11 @@
 import 'package:My2D2Do/screens/createAccountScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:My2D2Do/models/auth.dart';
-
 
 import 'mainHome.dart';
 class LoginScreen extends StatefulWidget {
 
   @override
-  State createState() => new LoginPageState(); //login page class;
+  State createState() => new _LoginScreenState(); //login page class;
 }
 
 

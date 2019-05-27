@@ -1,7 +1,6 @@
 import 'package:My2D2Do/classes/My2DItem.dart';
 import 'package:My2D2Do/classes/My2DList.dart';
 import 'package:flutter/material.dart';
-import 'package:My2D2Do/models/todos.dart';
 
 class ItemList extends StatefulWidget {
   final My2DList list;
