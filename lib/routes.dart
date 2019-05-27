@@ -9,10 +9,10 @@ class Routes {
       title: 'My2D2Do',
       theme: ThemeData(
         brightness: Brightness.light,
-        primaryColor: Colors.red,
-        accentColor: Colors.green,
+        primaryColor: Color(0xFFe9884b),
+        accentColor: Color(0xFF4bace9),
       ),
-      home: LoginScreen(),
+      home: LoginPage(),
     ));
   }
 }
