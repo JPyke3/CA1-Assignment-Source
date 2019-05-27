@@ -46,13 +46,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     new Form(
                       key: _formKey,
-                      child: new Theme(        //wrapping form fields and container with a new widget
-                        data: new ThemeData(
-                            brightness: Brightness.light,
-                            primarySwatch: Theme.of(context).accentColor,//Theme data for colors etc
-                            inputDecorationTheme: new InputDecorationTheme(
-                                labelStyle: new TextStyle(
-                                    color: Theme.of(context).canvasColor, fontSize: 20.0))),
                         child: new Container(
                           //wrapped Column in a widget: to center the entry fields by inset from edge of screen by 40 pts
                           padding: const EdgeInsets.all(40.0),
@@ -106,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ]),
                         ),
                       ),
-                    )
+
                   ])
             ]));
   }
