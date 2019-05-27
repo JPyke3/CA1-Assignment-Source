@@ -12,7 +12,7 @@ class Routes {
         primaryColor: Color(0xFFe9884b),
         accentColor: Color(0xFF4bace9),
       ),
-      home: LoginPage(),
+      home: LoginScreen(),
     ));
   }
 }
